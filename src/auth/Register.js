@@ -52,7 +52,7 @@ export default function Register({getUser}){
     }
 
     if(registerSuccess){
-        return <Navigate to="/" />
+        return <Navigate to="/dashboard" />
     }
 
     return(

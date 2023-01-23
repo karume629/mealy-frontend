@@ -53,7 +53,7 @@ export default function Login({getUser}){
     }
 
     if(loginSuccess){
-        return <Navigate to="/" />
+        return <Navigate to="/dashboard" />
     }
 
     return(
