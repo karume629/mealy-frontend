@@ -52,7 +52,7 @@ function App() {
         <Route exact path="/login" element={<Login getUser={getUser} />} />
         <Route exact path="/register" element={<Register getUser={getUser} />} />
       </Routes>
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 }

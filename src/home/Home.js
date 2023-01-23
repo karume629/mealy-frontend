@@ -35,42 +35,61 @@ export default function Home({user}){
                         </h1> 
                     </>
                     :
-                    <h1>You are not logged in </h1>
+                    <h1 className="font-bold text-5xl text-center">Login to view your dashboard </h1>
                 }
                 </div>
 
                 <div className="">
-                    <h2 className="text-3xl border-b-4 border-teal-200 my-5 w-fit">Activity Summary</h2>
+                    <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Activity Summary</h2>
 
-                    <div className="flex flex-col items-center justify-center">
-                        <div className="stats shadow">
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="stats shadow border-2 border-teal-600 text-center">
                             <div className="stat">
-                                <div className="stat-title">Total Page Views</div>
-                                <div className="stat-value">89,400</div>
-                                <div className="stat-desc">21% more than last month</div>
+                                <div className="stat-title">Total Orders Made</div>
+                                <div className="stat-value">89</div>
+                                <div className="stat-desc">5 Months</div>
                             </div>
                         </div>
 
-                        <div className="stats bg-primary text-primary-content">
+                        <div className="stats bg-teal-400 text-primary-content">
     
                             <div className="stat">
                                 <div className="stat-title">Account balance</div>
-                                <div className="stat-value">$89,400</div>
+                                <div className="stat-value">KES 89,400</div>
                                 <div className="stat-actions">
-                                <button className="btn btn-sm btn-success">Add funds</button>
+                                <button className="btn btn-sm btn-info hover:btn-success">Add funds</button>
                                 </div>
                             </div>
                             
                             <div className="stat">
-                                <div className="stat-title">Current balance</div>
-                                <div className="stat-value">$89,400</div>
+                                <div className="stat-title">Recent purchase</div>
+                                <div className="stat-value">KES 1,400</div>
                                 <div className="stat-actions">
-                                <button className="btn btn-sm">Withdrawal</button> 
-                                <button className="btn btn-sm">deposit</button>
+                                <button className="btn btn-sm">Cancel</button> 
+                                <button className="btn btn-sm">Edit</button>
                                 </div>
                             </div>
                             
                         </div>
+                    </div>
+
+                    <div className="upcoming-events mt-3 p-4">
+                        <h5 className="text-3xl border-b-4 border-teal-300 my-5 w-fit mb-4">
+                            Order History
+                        </h5>
+                        <div className="border-2 border-teal-400 p-3 rounded-2xl w-auto">
+                            <ul className="menu t">
+                                <li className="inline-flex">Full chicken and fries - <span className="font-bold text-teal-700">KES 800</span></li>
+                                <li><a>Rice and beef stew</a></li>
+                                <li><a>Samosa - 5</a></li>
+                            </ul>
+                            <div>
+                                <a href="#" className="inline-flex underline items-center text-base font-normal text-teal-900 hover:text-teal-500">
+                                    View all
+                                </a>
+                            </div>
+                        </div>
+                        
                     </div>
 
                 </div>
