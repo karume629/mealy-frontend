@@ -4,6 +4,7 @@ import './App.css';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import Home from './home/Home';
+import Footer from './nav/Footer';
 import Nav from './nav/Nav';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route exact path="/login" element={<Login getUser={getUser} />} />
         <Route exact path="/register" element={<Register getUser={getUser} />} />
       </Routes>
+    <Footer />
     </>
   );
 }
