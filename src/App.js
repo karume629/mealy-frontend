@@ -55,7 +55,7 @@ function App() {
   let loginRoutes = (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/meals" element={<Meals />} />
+      <Route exact path="/meals/" element={<Meals />} />
       <Route exact path="/login" element={<Login getUser={getUser} />} />
       <Route exact path="/l" element={<AdminLogin getUser={getUser} />} />
       <Route exact path="/register" element={<Register getUser={getUser} />} />
@@ -66,8 +66,8 @@ function App() {
   let routes = (
     <>
         <Routes>
-          <Route exact path="/meals" element={<Meals />} />
-          <Route exact path="/admin" element={<Caterer />} />
+          <Route exact path="/meals/" element={<Meals />} />
+          <Route exact path="/admin/" element={<Caterer />} />
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/menu" element={<MealList />} />
           <Route exact path="/dashboard" element={<Dashboard user={user} />} />

@@ -78,24 +78,24 @@ export default function Dashboard({user}){
                             Order History
                         </h5>
                         <div className="border-2 border-teal-300 p-3 rounded-2xl w-auto">                            
-                            <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
-                                <li class="mb-10 ml-4">
-                                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">22/08 11AM</time>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">1/2 Chicken breast and fries</h3>
-                                    <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">KES 800</p>
+                            <ol className="relative border-l border-gray-200 dark:border-gray-700">                  
+                                <li className="mb-10 ml-4">
+                                    <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                                    <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">22/08 11AM</time>
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">1/2 Chicken breast and fries</h3>
+                                    <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">KES 800</p>
                                 </li>
-                                <li class="mb-10 ml-4">
-                                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">1/01 14:03PM</time>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Beef Pizza Large</h3>
-                                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">KES 1400</p>
+                                <li className="mb-10 ml-4">
+                                    <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                                    <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">1/01 14:03PM</time>
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Beef Pizza Large</h3>
+                                    <p className="text-base font-normal text-gray-500 dark:text-gray-400">KES 1400</p>
                                 </li>
-                                <li class="ml-4">
-                                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">13/01 08:10AM</time>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">5 Samosas, 3 Doughnuts, 1 Chicken Pie</h3>
-                                    <p class="text-base font-normal text-gray-500 dark:text-gray-400">KES 400</p>
+                                <li className="ml-4">
+                                    <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                                    <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">13/01 08:10AM</time>
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">5 Samosas, 3 Doughnuts, 1 Chicken Pie</h3>
+                                    <p className="text-base font-normal text-gray-500 dark:text-gray-400">KES 400</p>
                                 </li>
                             </ol>
                         </div>
