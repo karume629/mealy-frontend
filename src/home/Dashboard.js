@@ -57,7 +57,7 @@ export default function Dashboard({user}){
                                 <div className="stat-title">Account balance</div>
                                 <div className="stat-value">KES 89,400</div>
                                 <div className="stat-actions">
-                                <button className="btn btn-sm btn-info hover:btn-success">Add funds</button>
+                                <button className="btn btn-sm btn-info text-white hover:btn-success">Add funds</button>
                                 </div>
                             </div>
                             
@@ -73,7 +73,7 @@ export default function Dashboard({user}){
                         </div>
                     </div>
 
-                    <div className="upcoming-events mt-3 p-4">
+                    <div className="upcoming-events mt-3">
                         <h5 className="text-3xl border-b-4 border-teal-300 my-5 w-fit mb-4">
                             Order History
                         </h5>

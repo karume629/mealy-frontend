@@ -12,6 +12,12 @@ export default function Nav({isLoggedIn, user, logout}){
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/meals">Meals</Link></li>
+                    {
+                    user.isAdmin ? 
+                    <li><Link to="/admin">Admin Dashboard</Link></li>
+                    :
+                    null
+                }
                 </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">MEALY</Link>
@@ -20,6 +26,12 @@ export default function Nav({isLoggedIn, user, logout}){
                 <ul className="menu menu-horizontal px-1">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/meals">Meals</Link></li>
+                {
+                    user.isAdmin ? 
+                    <li><Link to="/admin">Admin Dashboard</Link></li>
+                    :
+                    null
+                }
                 </ul>
             </div>
             <div className="navbar-end">

@@ -21,7 +21,7 @@ export default function Register({getUser}){
     const [registerSuccess, setregisterSuccess] = useState(false)
     const [registerError, setregisterError] = useState("")
 
-    const { register, handleSubmit, formState:{ errors } } = useForm({
+    const { register, handleSubmit } = useForm({
         resolver: yupResolver(schema)
     });
     const onSubmit = (data) => registerUser(data);
