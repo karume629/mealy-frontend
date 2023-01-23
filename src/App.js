@@ -59,7 +59,7 @@ function App() {
       <Route exact path="/login" element={<Login getUser={getUser} />} />
       <Route exact path="/l" element={<AdminLogin getUser={getUser} />} />
       <Route exact path="/register" element={<Register getUser={getUser} />} />
-      {/* <Route path='*' element={<Navigate to="/login" />}/> */}
+      <Route path='*' element={<Navigate to="/login" />}/>
     </Routes>
   )
 
@@ -71,7 +71,7 @@ function App() {
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/menu" element={<MealList />} />
           <Route exact path="/dashboard" element={<Dashboard user={user} />} />
-          {/* <Route path="*" element={<Navigate to="/dashboard" />} /> */}
+          <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
     </>
   )
