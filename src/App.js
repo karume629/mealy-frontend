@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './auth/Login';
+import Register from './auth/Register';
 import Home from './home/Home';
 import Nav from './nav/Nav';
 
@@ -48,6 +49,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home user={user} />} />
         <Route exact path="/login" element={<Login getUser={getUser} />} />
+        <Route exact path="/register" element={<Register getUser={getUser} />} />
       </Routes>
     </>
   );

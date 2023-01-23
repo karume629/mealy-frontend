@@ -60,7 +60,7 @@ export default function Login({getUser}){
         <>
             <div className="container mx-auto flex items-center justify-center mt-6">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h1 className="my-8 text-4xl font-bold"><span className="border-b-4 border-teal-400">Welcome</span> to Mealy</h1>
+                <h1 className="my-8 text-4xl font-bold"><span className="border-b-4 border-teal-400">Hello,</span> Welcome Back...</h1>
                 {loginError ? <span className="text-red-500 my-5">Error: {loginError}!</span> : false}
                 <div className="mb-6">
                     <label for="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
