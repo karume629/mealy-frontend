@@ -13,7 +13,7 @@ import Caterer from './caterer/Caterer';
 import Orders from './orders/Orders';
 import MealList from './meals/MealList';
 import CheckoutList from './checkout/CheckoutList';
-import ConfirmPay from './payment/ConfirmPay';
+import ConfirmOrder from './payment/ConfirmOrder';
 
 function App() {
   const [user, setuser] = useState({})
@@ -68,9 +68,9 @@ function App() {
   let routes = (
     <>
         <Routes>
-          <Route exact path="/meals/" element={<Meals />} />
+          <Route exact path="/meals/" element={<Meals isLoggedIn={isLoggedIn} />} />
           <Route exact path="/cart" element={<CheckoutList />} />
-          <Route exact path="/payment" element={<ConfirmPay />} />
+          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
           <Route exact path="/admin/" element={<Caterer />} />
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/menu" element={<MealList />} />
@@ -89,7 +89,6 @@ function App() {
         :
         loginRoutes
       }
-      {/* <Caterer /> */}
     {/* <Footer /> */}
     </>
   );
