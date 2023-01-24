@@ -12,6 +12,8 @@ import Nav from './nav/Nav';
 import Caterer from './caterer/Caterer';
 import Orders from './orders/Orders';
 import MealList from './meals/MealList';
+import CheckoutList from './checkout/CheckoutList';
+import ConfirmPay from './payment/ConfirmPay';
 
 function App() {
   const [user, setuser] = useState({})
@@ -67,6 +69,8 @@ function App() {
     <>
         <Routes>
           <Route exact path="/meals/" element={<Meals />} />
+          <Route exact path="/cart" element={<CheckoutList />} />
+          <Route exact path="/payment" element={<ConfirmPay />} />
           <Route exact path="/admin/" element={<Caterer />} />
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/menu" element={<MealList />} />

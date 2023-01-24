@@ -6,8 +6,8 @@ export default function Meals(){
         <>
             <div className="container mx-auto mt-6">
                 <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Menu</h2>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
-                    <div className="">
+                <div className="grid grid-cols-3 gap-8">
+                    <div className="col-span-2">
                         <div className="grid grid-cols-3 gap-5">                    
                         <div className="w-full max-w-sm bg-white border border-teal-200 hover:scale-105 rounded-lg shadow dark:bg-teal-800 dark:border-teal-700">
                             <div className="flex justify-center items-center">
@@ -78,7 +78,10 @@ export default function Meals(){
                         </div>
                         </div> 
                     </div>
-                <div className="">
+                <div className="fixed right-20 w-96 border-2 rounded-lg">
+                <div className="flex justify-center">
+                    <h3 className="text-2xl text-teal-900 border-b-4 border-teal-400 text-center w-fit">Your Order(s)</h3>
+                </div>
                 <Checkout />
                 </div>
                 </div>
