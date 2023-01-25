@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import TextTransition, { presets } from "react-text-transition";
 
 export default function Dashboard({user}){
@@ -57,7 +58,7 @@ export default function Dashboard({user}){
                                 <div className="stat-title">Account balance</div>
                                 <div className="stat-value">KES 89,400</div>
                                 <div className="stat-actions">
-                                <button className="btn btn-sm btn-info text-white hover:btn-success">Add funds</button>
+                                <button className="btn btn-sm btn-outline">Add funds</button>
                                 </div>
                             </div>
                             
@@ -65,15 +66,15 @@ export default function Dashboard({user}){
                                 <div className="stat-title">Current order</div>
                                 <div className="stat-value">KES 1,400</div>
                                 <div className="stat-actions">
-                                <button className="btn btn-sm">Cancel</button> 
-                                <button className="btn btn-sm">Edit</button>
+                                <button className="btn bg-red-600 btn-sm">Cancel</button> 
+                                <button className="btn btn-outline btn-sm mx-4">Edit</button>
                                 </div>
                             </div>
                             
                         </div>
                     </div>
 
-                    <div className="upcoming-events mt-3">
+                    <div className="mb-10 mt-3">
                         <h5 className="text-3xl border-b-4 border-teal-300 my-5 w-fit mb-4">
                             Order History
                         </h5>
@@ -98,6 +99,8 @@ export default function Dashboard({user}){
                                     <p className="text-base font-normal text-gray-500 dark:text-gray-400">KES 400</p>
                                 </li>
                             </ol>
+
+                            <Link to="/katy/orders" className="text-teal-600 text-base underline">View all</Link>
                         </div>
                         
                     </div>

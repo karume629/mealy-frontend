@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import homeImage from "../assets/food.jpg"
 
 export default function Home(){
     return (
         <>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src="https://w0.peakpx.com/wallpaper/588/913/HD-wallpaper-healthy-snacks-sandwich-food-juice-fruits.jpg"
+                    <img src={homeImage}
                      alt="home" className="max-w-sm rounded-lg" />
                     <div>
                     <h1 className="text-8xl font-bold">Welcome to Mealy</h1>
+                    <h3 className="text-3xl font-bold p-4">You Order... We Deliver...</h3>
                     <p className="py-6 text-teal-700 text-base">Your number one stop shop for meals and snacked delivered right at your doorstep for NO extra charge.</p>
                     <Link to="/meals" className="btn btn-primary">Make Order</Link>
                     </div>

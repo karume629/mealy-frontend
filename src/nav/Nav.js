@@ -20,7 +20,7 @@ export default function Nav({isLoggedIn, user, logout}){
                 }
                 </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl">MEALY</Link>
+                <Link to="/" className="btn btn-ghost font-extrabold text-3xl hover:bg-teal-100">MEALY</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

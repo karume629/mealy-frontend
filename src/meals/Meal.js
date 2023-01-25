@@ -21,7 +21,7 @@ export default function Meals({isLoggedIn}){
                                 </a>
                                 <div className="flex items-center justify-between mt-3">
                                     <span className="text-2xl font-bold text-teal-900 dark:text-white">KES 999</span>
-                                    <Link to="/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
+                                    <Link to="/meals/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
                                 </div>
                             </div>
                         </div> 
@@ -38,7 +38,7 @@ export default function Meals({isLoggedIn}){
                                 </a>
                                 <div className="flex items-center justify-between mt-3">
                                     <span className="text-2xl font-bold text-teal-900 dark:text-white">KES 999</span>
-                                    <Link to="/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
+                                    <Link to="/meals/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
                                 </div>
                             </div>
                         </div> 
@@ -55,7 +55,7 @@ export default function Meals({isLoggedIn}){
                                 </a>
                                 <div className="flex items-center justify-between mt-3">
                                     <span className="text-2xl font-bold text-teal-900 dark:text-white">KES 999</span>
-                                    <Link to="/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
+                                    <Link to="/meals/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
                                 </div>
                             </div>
                         </div> 
@@ -72,7 +72,7 @@ export default function Meals({isLoggedIn}){
                                 </a>
                                 <div className="flex items-center justify-between mt-3">
                                     <span className="text-2xl font-bold text-teal-900 dark:text-white">KES 999</span>
-                                    <Link to="/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
+                                    <Link to="/meals/id" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Order</Link>
                                 </div>
                             </div>
                         </div>

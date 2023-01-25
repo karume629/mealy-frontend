@@ -14,6 +14,9 @@ import Orders from './orders/Orders';
 import MealList from './meals/MealList';
 import CheckoutList from './checkout/CheckoutList';
 import ConfirmOrder from './payment/ConfirmOrder';
+import SingleMeal from './meals/SingleMeal';
+import CustomerOrders from './orders/CustomerOrders';
+import EditOrder from './orders/EditOrder';
 
 function App() {
   const [user, setuser] = useState({})
@@ -69,8 +72,11 @@ function App() {
     <>
         <Routes>
           <Route exact path="/meals/" element={<Meals isLoggedIn={isLoggedIn} />} />
+          <Route exact path="/meals/id" element={<SingleMeal />} />
           <Route exact path="/cart" element={<CheckoutList />} />
           <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+          <Route exact path="/order/id/edit" element={<EditOrder />} />
+          <Route exact path="/katy/orders" element={<CustomerOrders />} />
           <Route exact path="/admin/" element={<Caterer />} />
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/menu" element={<MealList />} />
