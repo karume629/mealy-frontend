@@ -16,7 +16,7 @@ export default function EditOrder(){
                         <div className="flex flex-row items-center">
                             <button className="btn btn-outline btn-info btn-sm text-xl text-center" type="button">-</button>
                             <span className="px-2">5</span>
-                            <button className="btn btn-outline btn-warning btn-sm text-xl" btn-sm type="button">+</button>
+                            <button className="btn btn-outline btn-warning btn-sm text-xl" type="button">+</button>
                             <button className="px-2">
                             </button>
                         </div>

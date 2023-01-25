@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import homeImage from "../assets/food.jpg"
+import homeImage from "../../assets/food.jpg"
 
 export default function Home(){
     return (

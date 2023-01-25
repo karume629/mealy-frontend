@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import AdminLogin from './auth/AdminLogin';
+import AdminLogin from './components/admin/AdminLogin';
 import './App.css';
-import Login from './auth/Login';
-import Register from './auth/Register';
-import Dashboard from './home/Dashboard';
-import Home from './home/Home';
-import Meals from './meals/Meal';
-// import Footer from './nav/Footer';
-import Nav from './nav/Nav';
-import Caterer from './caterer/Caterer';
-import Orders from './orders/Orders';
-import MealList from './meals/MealList';
-import CheckoutList from './checkout/CheckoutList';
-import ConfirmOrder from './payment/ConfirmOrder';
-import SingleMeal from './meals/SingleMeal';
-import CustomerOrders from './orders/CustomerOrders';
-import EditOrder from './orders/EditOrder';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import Dashboard from './components/home/Dashboard';
+import Home from './components/home/Home';
+import Meals from './components/meals/Meal';
+// import Footer from './components/nav/Footer';
+import Nav from './components/nav/Nav';
+import Caterer from './components/admin/Admin';
+import Orders from './components/admin/Orders';
+import MealList from './components/admin/MealList';
+import CheckoutList from './components/checkout/CheckoutList';
+import ConfirmOrder from './components/payment/ConfirmOrder';
+import SingleMeal from './components/meals/SingleMeal';
+import CustomerOrders from './components/orders/CustomerOrders';
+import EditOrder from './components/orders/EditOrder';
+import EditMeal from './components/admin/EditMeal';
 
 function App() {
   const [user, setuser] = useState({})
@@ -25,20 +26,40 @@ function App() {
 
   useEffect(() => {
     const user_id = sessionStorage.getItem('user_id');
+    const admin_id = sessionStorage.getItem('admin_id');
 
-    fetch(`http://localhost:3000/users/${user_id}`)
-    .then(res => {
-      if (res.status === 200) {
-        res.json().then(data => {
-          getUser(data)
-        })
-      }else{
-        res.json().then(data => {
-          setuser({})
-          setisLoggedIn(false)
-        })
-      }
-    })
+    if (admin_id) {
+      fetch(`http://localhost:3000/admins/${admin_id}`)
+      .then(res => {
+        if (res.status === 200) {
+          res.json().then(data => {
+            getUser(data)
+          })
+        }else{
+          res.json().then(data => {
+            setuser({})
+            setisLoggedIn(false)
+          })
+        }
+      })
+    }
+ 
+    if (user_id) {
+      fetch(`http://localhost:3000/users/${user_id}`)
+      .then(res => {
+        if (res.status === 200) {
+          res.json().then(data => {
+            getUser(data)
+          })
+        }else{
+          res.json().then(data => {
+            setuser({})
+            setisLoggedIn(false)
+          })
+        }
+      })
+    }
+
     
   }, [])
   
@@ -46,11 +67,10 @@ function App() {
   function getUser(data){
     setuser(data)
     setisLoggedIn(true)
-    sessionStorage.setItem('user_id', JSON.stringify(data.id));
   }
 
   function logout(){
-    sessionStorage.removeItem('user_id');
+    sessionStorage.clear();
     setuser({})
     setisLoggedIn(false)
     window.location.reload();
@@ -62,7 +82,7 @@ function App() {
       <Route exact path="/" element={<Home />} />
       <Route exact path="/meals/" element={<Meals />} />
       <Route exact path="/login" element={<Login getUser={getUser} />} />
-      <Route exact path="/l" element={<AdminLogin getUser={getUser} />} />
+      <Route exact path="/login/admin" element={<AdminLogin getUser={getUser} />} />
       <Route exact path="/register" element={<Register getUser={getUser} />} />
       <Route path='*' element={<Navigate to="/login" />}/>
     </Routes>
@@ -72,16 +92,22 @@ function App() {
     <>
         <Routes>
           <Route exact path="/meals/" element={<Meals isLoggedIn={isLoggedIn} />} />
-          <Route exact path="/meals/id" element={<SingleMeal />} />
+          <Route exact path="/meals/:id/:meal" element={<SingleMeal />} />
           <Route exact path="/cart" element={<CheckoutList />} />
           <Route exact path="/order/confirm" element={<ConfirmOrder />} />
           <Route exact path="/order/id/edit" element={<EditOrder />} />
           <Route exact path="/katy/orders" element={<CustomerOrders />} />
-          <Route exact path="/admin/" element={<Caterer />} />
+          <Route exact path="/admin" element={<Caterer user={user} />} />
           <Route exact path="/admin/orders" element={<Orders />} />
           <Route exact path="/admin/menu" element={<MealList />} />
+          <Route exact path="/admin/menu/edit/id" element={<EditMeal />} />
           <Route exact path="/dashboard" element={<Dashboard user={user} />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+          {
+            user.is_admin ?
+            <Route path="*" replace element={<Navigate to="/admin" />} />
+            :
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          }
         </Routes>
     </>
   )
@@ -95,6 +121,7 @@ function App() {
         :
         loginRoutes
       }
+
     {/* <Footer /> */}
     </>
   );
