@@ -15,11 +15,6 @@ export const fetchMeals = createAsyncThunk('meals/fetchMeals', () => {
     .then(res => res.data)
 })
 
-export const addMeal = createAsyncThunk('meals/addMeal', (data) => {
-    return axios.post("http://localhost:3000/meals", data)
-    .then(res => res.data)
-})
-
 export const fetchMealById = createAsyncThunk('meals/fetchMealById', (id) => {
     return axios.get(`http://localhost:3000/meals/${id}`)
     .then(res => res.data)
@@ -39,7 +34,6 @@ const mealSlice = createSlice({
 
         removeFromCart: (state, action) => {
             state.cart = state.cart.filter(item => item.id !== action.payload)
-            console.log(action.payload);
             return state
         },
 
@@ -63,40 +57,25 @@ const mealSlice = createSlice({
           },
     },
     extraReducers: builder => {
-      builder.addCase(fetchMeals.pending, state => {
-          state.loading = true
-      })
+        builder.addCase(fetchMeals.pending, state => {
+            state.loading = true
+        })
   
-      builder.addCase(fetchMeals.fulfilled, (state, action) => {
-          state.loading = false
-          state.meals = action.payload
-          state.error = ''
-      })
+        builder.addCase(fetchMeals.fulfilled, (state, action) => {
+            state.loading = false
+            state.meals = action.payload
+            state.error = ''
+        })
   
-      builder.addCase(fetchMeals.rejected, (state, action) => {
-          state.loading = false
-          state.meals = []
-          state.error = action.error.message
-      })
+        builder.addCase(fetchMeals.rejected, (state, action) => {
+            state.loading = false
+            state.meals = []
+            state.error = action.error.message
+        })
   
-      builder.addCase(fetchMealById.fulfilled, (state, action) => {
-          state.singleMeal = action.payload
-      })
-  
-      builder.addCase(addMeal.pending, (state) => {
-          state.loading = true
-      })
-  
-      builder.addCase(addMeal.fulfilled, (state, action) => {
-          state.loading = false
-          state.meals.push(action.payload)
-          state.error = ''
-      })
-  
-      builder.addCase(addMeal.rejected, (state, action) => {
-          state.loading = false
-          state.error = action.error.message
-      })
+        builder.addCase(fetchMealById.fulfilled, (state, action) => {
+            state.singleMeal = action.payload
+        })
 
     }
 })

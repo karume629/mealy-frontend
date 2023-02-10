@@ -99,8 +99,8 @@ function App() {
           <Route exact path="/katy/orders" element={<CustomerOrders />} />
           <Route exact path="/admin" element={<Caterer user={user} />} />
           <Route exact path="/admin/orders" element={<Orders />} />
-          <Route exact path="/admin/menu" element={<MealList />} />
-          <Route exact path="/admin/menu/edit/id" element={<EditMeal />} />
+          <Route exact path="/admin/menu" element={<MealList user={user} />} />
+          <Route exact path="/admin/menu/edit/:id" element={<EditMeal />} />
           <Route exact path="/dashboard" element={<Dashboard user={user} />} />
           {
             user.is_admin ?

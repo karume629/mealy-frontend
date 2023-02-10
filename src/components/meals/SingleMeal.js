@@ -43,9 +43,9 @@ export default function SingleMeal(){
                         <p className="text-2xl font-bold text-teal-900 dark:text-white">KES 700</p>
 
                         <div className="card-actions">
-                        <button onClick={() => dispatch(addtoCart(meal.id))} className="btn btn-outline bg-teal-400 text-white">Add to cart</button>
+                        <button onClick={() => dispatch(addtoCart(meal.id))} className="btn btn-outline bg-teal-400 text-white">Order</button>
                         <button onClick={() => dispatch(removeFromCart(meal.id))} 
-                        className="btn btn-outline bg-red-600 text-white">Remove from cart</button>
+                        className="btn btn-outline bg-red-600 text-white">Remove order</button>
                         </div>
                     </div>
                     </div>
