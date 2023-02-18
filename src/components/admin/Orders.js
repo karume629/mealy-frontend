@@ -1,4 +1,11 @@
-export default function Orders(){
+import { useSelector } from "react-redux"
+import moment from "moment/moment";
+
+export default function Orders({user}){
+    const orders = useSelector(state => state.orders.allOrders)
+    const adminOrders = orders.filter(order => order.meal.admin_id === user.id)
+
+    const mealPrice = (price, quantity) => price * quantity
     return(
         <>
             <div className="container mx-auto mt-8">
@@ -14,248 +21,39 @@ export default function Orders(){
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <div className="flex items-center space-x-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                                <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Avatar" />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">Hart Hagerty</div>
-                            <div className="text-sm opacity-50">TEL: 24874783482</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        Beef Biryani 
-                        <br/>
-                        <span className="badge badge-teal-100 badge-sm">17/08/2022 13:39PM</span>
-                        </td>
-                        <td>3</td>
-                        <th>
-                        KES 2900
-                        </th>
-                    </tr>
+
+                    {
+                        adminOrders.map(order => {
+                            return (
+                                <tr>
+                                    <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={order.user.avatar} alt="User Avatar" />
+                                        </div>
+                                        </div>
+                                        <div>
+                                        <div className="font-bold">{order.user.first_name} {order.user.last_name}</div>
+                                        <div className="text-sm opacity-50">{order.user.email}</div>
+                                        </div>
+                                    </div>
+                                    </td>
+                                    <td>
+                                    {order.meal.title}
+                                    <br/>
+                                    <span className="badge badge-teal-100 badge-sm">{moment(order.updated_at).format('MMMM Do YYYY, h:mm a')}</span>
+                                    </td>
+                                    <td>{order.quantity}</td>
+                                    <th>
+                                    KES {mealPrice(order.quantity, order.meal.price)}
+                                    </th>
+                                </tr>
+                            )
+                        })
+                    }
+
                     </tbody>
-                    
                     </table>
                 </div>
             </div>

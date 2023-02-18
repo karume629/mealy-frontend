@@ -35,16 +35,10 @@ const adminMealSlice = createSlice({
     name: 'adminMeals',
     initialState,
     reducers: {
-        getDayTotal: (state) => {
-            state.totalPrice = state.cart.reduce((acc, item) => {
-              return acc + item.price * item.quantity
-            }, 0)
-          },
-        
         updateRemovedMeal: (state, action) => {
             state.meals = state.meals.filter(item => item.id !== action.payload)
             return state
-        }
+        },
     },
     extraReducers: builder => {
         builder.addCase(fetchAdminMeals.fulfilled, (state, action) => {
@@ -105,4 +99,4 @@ const adminMealSlice = createSlice({
 
 export default adminMealSlice.reducer
 
-export const { getDayTotal, updateRemovedMeal } = adminMealSlice.actions
+export const { updateRemovedMeal } = adminMealSlice.actions

@@ -1,36 +1,42 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function ConfirmOrder(){
+export default function ConfirmOrder({user}){
+    const meals = useSelector(state => state.meals)
+    const dispatch = useDispatch()
+
+    function createOrder(){
+        dispatch(makeOrder({
+            user_id: user.id,
+
+        }))
+    }
+
     return(
         <>
             <div className="container mt-10 mx-auto w-2/4 ">
                 <div className="card flex flex-col justify-center border-4 border-teal-400 p-6">
                     <h1 className="text-teal-800 text-3xl border-b-4 mb-6 border-teal-300 text-center font-extrabold w-fit">Confirm Order</h1>
                     <div className="flex flex-row justify-between">
-                        <h2 className="text-teal-800 font-bold text-2xl">Total Amount In Your Account</h2>
+                        <h2 className="text-teal-800 font-bold text-2xl">Total Amount To Pay</h2>
                         <h2 className="text-teal-900 font-extrabold text-2xl">KES 84200</h2>
                     </div>
 
                     <hr className="my-6 border-2 border-teal-200" />
 
-                    <div className="flex flex-row justify-between">
-                        <h2 className="text-teal-800 font-bold text-2xl">Amount To Pay</h2>
-                        <h2 className="text-teal-800 font-bold text-2xl">KES 4200</h2>
-                    </div>
-
                     <div>
                     <h2 className="text-teal-800 font-semibold text-xl underline my-5">Items</h2>
 
                     <ul>
-                        <li className="flex flex-row justify-between items-center border-2 border-teal-100 mb-2 rounded-lg p-2">
-                            <span>Chicken biryani</span> <span className="text-xl font-bold">x4</span>
-                        </li>
-                        <li className="flex flex-row justify-between items-center border-2 border-teal-100 mb-2 rounded-lg p-2">
-                            <span>Samosa</span> <span className="text-xl font-bold">x4</span>
-                        </li>
-                        <li className="flex flex-row justify-between items-center border-2 border-teal-100 mb-2 rounded-lg p-2">
-                            <span>Beef stew with rice</span> <span className="text-xl font-bold">x4</span>
-                        </li>
+                        {
+                            meals.cart.map(order => {
+                                return (
+                                    <li className="flex flex-row justify-between items-center border-2 border-teal-100 mb-2 rounded-lg p-2">
+                                        <span>{order.title}</span> <span className="text-xl font-bold">x{order.quantity}</span>
+                                    </li>
+                                )
+                            })
+                        }
                     </ul>
                     </div>
 

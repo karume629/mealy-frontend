@@ -25,7 +25,7 @@ export default function Meals({isLoggedIn}){
                 <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Menu</h2>
                 <div className="flex flex-col">
                 <h2 className="text-lg">View menu for other days</h2>
-                    <DatePicker format="MM-dd-y" className="w-96 mb-2" onChange={onChange} value={value} />
+                    <DatePicker format="MM-dd-y" minDate={new Date()} className="w-96 mb-2" onChange={onChange} value={value} />
                 </div>
                 {
                     meals.loading && 

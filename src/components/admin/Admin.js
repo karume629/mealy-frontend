@@ -7,11 +7,13 @@ import { fetchAdminMeals } from "../../features/admin/adminMealSlice";
 import { useEffect, useState } from "react";
 import moment from "moment/moment";
 import { createCalendar } from "../../features/calendar/calendarSlice";
+import { getAllOrders } from "../../features/users/orderSlice";
 
 
 export default function Caterer({user}){
     
     const data = useSelector(state => state.adminMeals)
+    const orders = useSelector(state => state.orders.allOrders)
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => addNewMeal(data);
@@ -26,11 +28,22 @@ export default function Caterer({user}){
         document.querySelector('form').reset()
     }
 
+    const adminOrders = orders.filter(order => order.meal.admin_id === user.id)
+
+    const daysTotal = adminOrders.reduce((acc, item) => {
+        const date = moment(new Date()).format("MMM Do YY")
+        let orderDate = moment(item.updated_at).format("MMM Do YY")
+        if (date == orderDate) return acc + item.meal.price * item.quantity
+        return 0
+    }, 0)
+
     useEffect(() => {
         dispatch(fetchAdminMeals({
             admin_id: user.id,
         }))
+        dispatch(getAllOrders())
     }, [])
+
 
     return (
         <>
@@ -92,7 +105,7 @@ export default function Caterer({user}){
                         <Link to="/admin/orders">
                         <div className="stat hover:bg-teal-500 hover:text-white">
                             <div className="stat-title">Total Orders</div>
-                            <div className="stat-value">300</div>
+                            <div className="stat-value">{adminOrders.length}</div>
                         </div>
                         </Link>
                         
@@ -104,8 +117,8 @@ export default function Caterer({user}){
                         </Link>
                         
                         <div className="stat hover:bg-teal-500 hover:text-white">
-                            <div className="stat-title">Total Sales</div>
-                            <div className="stat-value">KES 101,200</div>
+                            <div className="stat-title">Today's Total Sales</div>
+                            <div className="stat-value">KES {daysTotal}</div>
                         </div>
                     </div>
                 </div>

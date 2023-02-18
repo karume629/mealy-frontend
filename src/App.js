@@ -94,11 +94,11 @@ function App() {
           <Route exact path="/meals/" element={<Meals isLoggedIn={isLoggedIn} />} />
           <Route exact path="/meals/:id/:meal" element={<SingleMeal />} />
           <Route exact path="/cart" element={<CheckoutList />} />
-          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
-          <Route exact path="/order/id/edit" element={<EditOrder />} />
+          <Route exact path="/order/confirm" element={<ConfirmOrder user={user} />} />
+          <Route exact path="/order/:id/edit" element={<EditOrder />} />
           <Route exact path="/katy/orders" element={<CustomerOrders />} />
           <Route exact path="/admin" element={<Caterer user={user} />} />
-          <Route exact path="/admin/orders" element={<Orders />} />
+          <Route exact path="/admin/orders" element={<Orders user={user} />} />
           <Route exact path="/admin/menu" element={<MealList user={user} />} />
           <Route exact path="/admin/menu/edit/:id" element={<EditMeal />} />
           <Route exact path="/dashboard" element={<Dashboard user={user} />} />
