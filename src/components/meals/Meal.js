@@ -2,31 +2,39 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { singleDayMeal } from "../../features/calendar/calendarSlice";
-import { addtoCart } from "../../features/meals/mealSlice";
+import { addtoCart, fetchMeals } from "../../features/meals/mealSlice";
 import Checkout from "../checkout/Checkout";
 import DatePicker from 'react-date-picker';
 import moment from "moment";
 
 export default function Meals({isLoggedIn}){
     const meals = useSelector(state => state.calendar)
+    const defaultMeals = useSelector(state => state.meals.meals)
     const dispatch = useDispatch()
-    const [value, onChange] = useState(new Date());
+    const [value, onChange] = useState(null);
+    const [defaultArr, setdefaultArr] = useState(defaultMeals)
 
+    // defValues()
     useEffect(() => {
+        dispatch(fetchMeals())
         dispatch(singleDayMeal({
             day: value
         }))
+        if (value !== '' && value !== undefined && value !== null && value !== "Invalid date!") {
+            setdefaultArr(meals.day_meals)
+        }else {
+            setdefaultArr(defaultMeals)
+        }
     }, [value])
+    
+    console.log(defaultArr);
+    console.log(value);
 
     return(
         <>
             <div className="container mx-auto mt-6 mb-14">
                 
-                <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Menu</h2>
-                <div className="flex flex-col">
-                <h2 className="text-lg">View menu for other days</h2>
-                    <DatePicker format="MM-dd-y" minDate={new Date()} className="w-96 mb-2" onChange={onChange} value={value} />
-                </div>
+                <h2 className="text-3xl font-bold my-5 w-fit">Menu</h2>
                 {
                     meals.loading && 
                     <div className='flex flex-col justify-center w-full'>
@@ -36,16 +44,17 @@ export default function Meals({isLoggedIn}){
 
                 {!meals.loading && meals.error ? <div className="text-5xl text-red-700 font-bold">Oops! Looks like an error occured: {meals.error}</div> : null}
 
-                {!meals.loading && meals.day_meals.length ? 
+                {!meals.loading && !meals.error ? 
                 (
                     <div className="grid grid-cols-3 gap-8">
                     <div className="col-span-2">
                         <div className="grid grid-cols-3 gap-5">
                                                 
                         {
-                            meals.day_meals.map(meal => {
+                            defaultArr.length ?
+                            defaultArr.map(meal => {
                                 return(
-                                    <div key={meal.id} className="w-full max-w-sm bg-white border border-teal-200 hover:scale-105 rounded-lg shadow dark:bg-teal-800 dark:border-teal-700">
+                                    <div style={{background: 'white'}} key={meal.id} className="w-full max-w-sm bg-white border border-[#00A082] hover:scale-105 rounded-lg shadow">
                                         <div className="flex justify-center items-center">
                                             <img className="p-4 rounded-full w-48 h-48 object-cover" src={meal.image} alt="meal" />
                                         </div>
@@ -64,20 +73,30 @@ export default function Meals({isLoggedIn}){
                                     </div>
                                 )
                             })
+                            :
+                            <h1 className="text-2xl w-full font-semibold">No meals available for this day {moment(value).format('L')}!</h1>
                         } 
 
                         </div> 
                     </div>
-                <div className="fixed right-20 w-96 border-2 rounded-lg">
-                    <div className="flex justify-center">
-                        <h3 className="text-2xl text-teal-900 border-b-4 border-teal-400 text-center w-fit">Your Order(s)</h3>
+                <div className="fixed right-20 w-96">
+                    <div className="flex flex-col mb-4">
+                    <h2 className="text-2xl font-bold">View menu for other days</h2>
+                        <DatePicker format="MM-dd-y" minDate={new Date()} className="w-96 h-12 my-3" onChange={onChange} value={value} />
                     </div>
+
+                    <div className="border-2 border-[#00A082] rounded-lg">
+                    <div className="flex justify-center">
+                        <h3 className="text-2xl text-black font-bold text-center mt-3 w-fit">Your Order(s)</h3>
+                    </div>
+                    
                     <Checkout />
+                    </div>
                 </div>
                 </div>
                 )
                 : 
-                <h1 className="text-3xl font-bold">No meals available for this day {moment(value).format('L')}!</h1>
+                null
                 }
 
             </div>

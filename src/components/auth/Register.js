@@ -59,7 +59,7 @@ export default function Register({getUser}){
         <>
             <div className="container mx-auto flex items-center justify-center">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h1 className="mb-5 text-4xl font-bold"><span className="border-b-4 border-teal-400">Welcome</span> to Mealy</h1>
+                <h1 className="mb-5 text-4xl font-bold"><span className="">Welcome</span> to Mealy</h1>
                 {registerError ? <span className="text-red-500 my-5">Error: {registerError}!</span> : false}
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-2">
                     <div>
@@ -100,8 +100,10 @@ export default function Register({getUser}){
                     </div>
                 </div>
 
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
-                <p className="mt-10">Already have an account? <Link className="text-blue-500 hover:underline" to="/login">Login here</Link></p>
+                <div className="flex justify-center">
+                    <button type="submit" className="bg-[#00A082] hover:bg-[#00A082] text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Register</button>
+                </div>
+                <p className="mt-10">Already have an account? <Link className="hover:underline" to="/login">Login here</Link></p>
             </form>
 
             

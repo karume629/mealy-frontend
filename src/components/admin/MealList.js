@@ -60,7 +60,7 @@ export default function MealList({user}){
             theme="light"
         />
             <div className="container mx-auto mt-8">
-            <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Your Menu List</h2>
+            <h2 className="text-3xl my-5 w-fit">Your Menu List</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

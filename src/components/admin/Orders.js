@@ -9,7 +9,7 @@ export default function Orders({user}){
     return(
         <>
             <div className="container mx-auto mt-8">
-            <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Full Order History</h2>
+            <h2 className="text-3xl my-5 w-fit">Full Order History</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

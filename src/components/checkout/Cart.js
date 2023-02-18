@@ -12,16 +12,16 @@ export default function Cart({title, image, subtotal, id, quantity}){
                         <img className="w-14 h-14 rounded" src={image} alt="food" />
                         <div className="font-medium dark:text-white">
                             <div>{title}</div>
-                            <div className="text-sm text-gray-500 dark:text-gray-400">KES {subtotal}</div>
+                            <div className="text-sm text-black dark:text-gray-400">KES {subtotal}</div>
                         </div>
                     </div>
 
                     <div className="flex flex-row items-center">
-                        <button onClick={() => dispatch(decrementItem(id))} className="btn btn-outline btn-info btn-sm" type="button">-</button>
+                        <button onClick={() => dispatch(decrementItem(id))} className="btn btn-outline bg-white btn-sm" type="button">-</button>
 
-                        <span className="px-2">{quantity}</span>
+                        <span className="px-2 text-black">{quantity}</span>
 
-                        <button onClick={() => dispatch(incrementItem(id))} className="btn btn-outline btn-warning btn-sm" type="button">+</button>
+                        <button onClick={() => dispatch(incrementItem(id))} className="btn btn-outline bg-white btn-sm" type="button">+</button>
 
                         <button onClick={() => dispatch(removeFromCart(id))} className="px-2">
                             <svg fill="none" className="w-10 h-10 hover:scale-95"  stroke="red" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -31,7 +31,7 @@ export default function Cart({title, image, subtotal, id, quantity}){
 
                     </div>
                 </div>
-                <hr className="border-2 border-teal-300 my-6" />
+                <hr className="border-2 border-white my-6" />
             </div>
         </>
     )

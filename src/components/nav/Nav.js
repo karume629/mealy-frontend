@@ -6,32 +6,32 @@ export default function Nav({isLoggedIn, user, logout}){
     const cartCount = items.cart.length
     return(
         <>
-        <div className="navbar bg-base-100 px-9">
+        <div className="navbar bg-{#FFC244} px-9">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/meals">Meals</Link></li>
+                    <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/">Home</Link></li>
+                    <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/meals">Meals</Link></li>
                     {
                     user.is_admin ? 
-                    <li><Link to="/admin">Admin Dashboard</Link></li>
+                    <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/admin">Admin Dashboard</Link></li>
                     :
                     null
                 }
                 </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost font-extrabold text-3xl hover:bg-teal-100">MEALY</Link>
+                <Link to="/" className="font-extrabold text-4xl hover:text-white text-[#00A082]">MEALY</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/meals">Meals</Link></li>
+                <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/">Home</Link></li>
+                <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/meals">Meals</Link></li>
                 {
                     user.is_admin ? 
-                    <li><Link to="/admin">Admin Dashboard</Link></li>
+                    <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/admin">Admin Dashboard</Link></li>
                     :
                     null
                 }
@@ -53,7 +53,7 @@ export default function Nav({isLoggedIn, user, logout}){
                             <span className="font-bold text-lg">{cartCount} Items</span>
                             <span className="text-teal-600 font-bold">Total: KES {items.totalPrice}</span>
                             <div className="card-actions">
-                                <Link to="/cart" className="btn btn-info btn-block">View cart</Link>
+                                <Link  to="/cart" className="btn btn-info btn-block">View cart</Link>
                             </div>
                             </div>
                         </div>
@@ -68,11 +68,11 @@ export default function Nav({isLoggedIn, user, logout}){
                             <li>
                             {
                                 user.is_admin ?
-                                <Link to="/admin" className="justify-between">
+                                <Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline justify-between" to="/admin" >
                                     Admin Dashboard
                                 </Link>
                                 :
-                                <Link to="/dashboard" className="justify-between">
+                                <Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline justify-between" to="/dashboard" >
                                 Dashboard
                                 </Link>
 
@@ -84,9 +84,9 @@ export default function Nav({isLoggedIn, user, logout}){
                 </div>
             : 
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to="/login">Login</Link></li>
+                    <li><Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/login">Login</Link></li>
                     <li tabIndex={0}>
-                    <Link to="/register">Register</Link>
+                    <Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline" to="/register">Register</Link>
                     </li>
                 </ul>
             }

@@ -61,17 +61,17 @@ export default function Caterer({user}){
             />
 
             <div className="container mx-auto mb-12">
-                <div className="card p-16 border-8 border-teal-800 text-center">
+                <div className="card p-16 border-8 border-black text-center">
                     <h1 className="text-5xl">
                         <span className="font-bold">
                             Welcome
                         </span>
-                        <span className="uppercase border-b-8 border-teal-400"> {user.username}</span>
+                        <span className="uppercase border-b-8 border-[#00A082]"> {user.username}</span>
                     </h1> 
                 </div>
 
-                <div className="border-2 border-teal-300 rounded-lg p-4 mt-7">
-                    <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Add New Meal</h2>
+                <div className="border-4 border-[#00A082]  rounded-lg p-4 mt-7">
+                    <h2 className="text-3xl my-5 w-fit">Add New Meal</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="flex flex-row gap-4">
                             <div className="mb-6">
@@ -95,12 +95,12 @@ export default function Caterer({user}){
                             <textarea {...register("description")} className="textarea textarea-info w-4/5" placeholder="Add an eye catching description"></textarea>
                         </div>
 
-                        <button type="submit" className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Submit</button>
+                        <button type="submit" className="text-white bg-[#00A082] hover:bg-[#00A082] px-3 py-2 rounded-lg">Submit</button>
                     </form>
                 </div>
 
-                <div className="w-full mt-6 border-2 border-teal-300 rounded-lg p-4">
-                    <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Today's Sales Data</h2>
+                <div className="w-full mt-6 border-4 border-[#00A082] rounded-lg p-4">
+                    <h2 className="text-3xl my-5 w-fit">Today's Sales Data</h2>
                     <div className="stats stats-vertical lg:stats-horizontal shadow w-full border border-teal-200">
                         <Link to="/admin/orders">
                         <div className="stat hover:bg-teal-500 hover:text-white">

@@ -28,14 +28,16 @@ export default function ConfirmOrder({user}){
     return(
         <>
             <div className="container mt-10 mx-auto w-2/4 ">
-                <div className="card flex flex-col justify-center border-4 border-teal-400 p-6">
-                    <h1 className="text-teal-800 text-3xl border-b-4 mb-6 border-teal-300 text-center font-extrabold w-fit">Confirm Order</h1>
-                    <div className="flex flex-row justify-between">
-                        <h2 className="text-teal-800 font-bold text-2xl">Total Amount To Pay</h2>
-                        <h2 className="text-teal-900 font-extrabold text-2xl">KES 84200</h2>
+                <div className="card flex flex-col justify-center border-4 border-[#00A082] p-6">
+                    <div className="flex justify-center">
+                    <h1 className="text-teal-800 text-3xl text-center font-extrabold w-fit">Confirm Order</h1>
+                    </div>
+                    <div className="flex flex-row items-center justify-between">
+                        <h2 className="text-teal-800 font-bold text-2xl mt-5">Total Amount To Pay</h2>
+                        <h2 className="text-teal-900 font-extrabold text-2xl mt-5">KES 84200</h2>
                     </div>
 
-                    <hr className="my-6 border-2 border-teal-200" />
+                    <hr className="my-3 border-2 border-[#00A082]" />
 
                     <div>
                     <h2 className="text-teal-800 font-semibold text-xl underline my-5">Items</h2>
@@ -44,7 +46,7 @@ export default function ConfirmOrder({user}){
                         {
                             meals.cart.map(order => {
                                 return (
-                                    <li className="flex flex-row justify-between items-center border-2 border-teal-100 mb-2 rounded-lg p-2">
+                                    <li className="flex flex-row justify-between items-center border-2 border-white mb-2 rounded-lg p-2">
                                         <span>{order.title}</span> <span className="text-xl font-bold">x{order.quantity}</span>
                                     </li>
                                 )
@@ -64,9 +66,9 @@ export default function ConfirmOrder({user}){
 
                     <div className="flex justify-evenly items-center flex-row mt-4">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <button type="submit" className="btn bg-teal-500 text-white">Make Order</button>
+                            <button type="submit" className="btn bg-[#00A082] text-white">Make Order</button>
                         </form>
-                        <Link to="/meals" className="btn btn-outline btn-warning hover:btn-warning">Continue Shopping</Link>
+                        <Link to="/meals" className="btn bg-[#00A082] text-white">Continue Shopping</Link>
                     </div>
                 </div>
             </div>

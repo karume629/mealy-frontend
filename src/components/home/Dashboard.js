@@ -77,7 +77,7 @@ export default function Dashboard({user}){
                                     {TEXTS[index % TEXTS.length]}
                                 </TextTransition>
                             </span>
-                        <span className="uppercase border-b-8 border-teal-400">{user.first_name} {user.last_name}</span>
+                        <span className="uppercase border-b-8 border-[#00A082] ">{user.first_name} {user.last_name}</span>
                         </h1> 
                     </>
                     :
@@ -86,7 +86,7 @@ export default function Dashboard({user}){
                 </div>
 
                 <div className="">
-                    <h2 className="text-3xl border-b-4 border-teal-300 my-5 w-fit">Activity Summary</h2>
+                    <h2 className="text-3xl my-5 w-fit">Activity Summary</h2>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div className="stats shadow border-2 border-teal-600 text-center">
@@ -96,7 +96,7 @@ export default function Dashboard({user}){
                             </div>
                         </div>
 
-                        <div className="stats bg-teal-400 text-primary-content">
+                        <div className="stats bg-white text-black">
     
                             <div className="stat">
                                 <div className="stat-title">Total amount spent</div>
@@ -123,20 +123,20 @@ export default function Dashboard({user}){
                     </div>
 
                     <div className="mb-10 mt-3">
-                        <h5 className="text-3xl border-b-4 border-teal-300 my-5 w-fit mb-4">
+                        <h5 className="text-3xl my-5 w-fit mb-4">
                             Order History
                         </h5>
-                        <div className="border-2 border-teal-300 p-3 rounded-2xl w-auto">                            
-                            <ol className="relative border-l border-gray-200 dark:border-gray-700">                  
+                        <div className="border-2 border-[#00A082] p-3 rounded-2xl w-auto">                            
+                            <ol className="relative border-l border-[#00A082]">                  
                                 {
                                     sortedOrder && sortedOrder.length ?
                                     sortedOrder.slice(0,3).map(order => {
                                         return (
                                             <li key={order.id} className="mb-5 ml-4">
-                                                <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                                                <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{moment(order.updated_at).startOf('day').fromNow()}</time>
+                                                <div className="absolute w-3 h-3 bg-white rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                                                <time className="mb-1 text-sm font-normal leading-none text-black">{moment(order.updated_at).startOf('day').fromNow()}</time>
                                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{order.meal.title}</h3>
-                                                <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">KES {calcOrderPrice(order.meal.price, order.quantity)}</p>
+                                                <p className="mb-4 text-base font-bold text-black">KES {calcOrderPrice(order.meal.price, order.quantity)}</p>
                                             </li>
                                         )
                                     })
@@ -147,7 +147,7 @@ export default function Dashboard({user}){
 
                             {
                                 sortedOrder && sortedOrder.length > 3 &&
-                                <Link to="/katy/orders" className="text-teal-600 text-base underline">View all</Link>
+                                <Link to="/katy/orders" className="text-black text-base underline">View all</Link>
                             }
                         </div>
                         

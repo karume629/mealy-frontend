@@ -17,7 +17,7 @@ export default function CheckoutList(){
             <div className="container mx-auto mt-6 w-4/5">
                 <div className="">
                     <div className="flex justify-center">
-                        <h3 className="text-2xl text-teal-900 border-b-4 font-bold mb-7 border-teal-400 text-center w-fit">Total Order</h3>
+                        <h3 className="text-2xl text-black border-b-4 font-bold mb-7  text-center w-fit">Total Order</h3>
                     </div>
                     {
                         items.cart.map(item => {
@@ -26,14 +26,14 @@ export default function CheckoutList(){
                     }
                 </div>
 
-                <hr className="border-4 border-teal-500" />
-                <div className="flex flex-row justify-between items-center border-spacing-2 bg-teal-200 p-4 rounded-b-lg w-full">
-                    <h2 className="text-xl text-teal-900 font-medium">TOTAL</h2>
-                    <h2 className="text-xl text-teal-900 font-bold">KES {items.totalPrice}</h2>
+                <hr className="border-4 border-[#00A082]" />
+                <div className="flex flex-row justify-between items-center border-spacing-2 bg-white p-4 rounded-b-lg w-full">
+                    <h2 className="text-xl text-black font-medium">TOTAL</h2>
+                    <h2 className="text-xl text-black font-bold">KES {items.totalPrice}</h2>
                 </div>
                 
                 <div className="mt-2">
-                    <Link className="btn bg-teal-700 text-white btn-sm w-full" type="button" to="/order/confirm">Checkout</Link>
+                    <Link className="btn bg-[#00A082] text-white btn-sm w-full" type="button" to="/order/confirm">Checkout</Link>
                 </div>
             </div>
         </>

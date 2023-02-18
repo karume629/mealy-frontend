@@ -19,28 +19,28 @@ export default function Checkout(){
                 <div className="p-4">
                     <div className="flex flex-col justify-center">
                         {
-                            items.cart.slice(0, 3).map(item => {
+                            items.cart.slice(0, 2).map(item => {
                                 return <Cart key={item.id} id={item.id} title={item.title} image={item.image} price={item.price} subtotal={item.subtotal} quantity={item.quantity} />
                             })
                         }
                     </div>
 
                         {
-                            window.location.pathname === "/meals" && items.cart.length > 3 ?
-                            <Link className="text-teal-500 underline hover:no-underline" to="/cart">View more</Link>
+                            window.location.pathname === "/meals" && items.cart.length > 2 ?
+                            <Link className="text-black underline hover:no-underline" to="/cart">View more</Link>
                             :
                             null
                         }
                 </div>
 
-                <hr className="border-4 border-teal-500" />
-                <div className="flex flex-row justify-between items-center border-spacing-2 bg-teal-200 p-4 rounded-b-lg w-full">
+                <hr className="border-4 border-[#00A082]" />
+                <div className="flex flex-row justify-between items-center border-spacing-2 bg-white p-4 rounded-b-lg w-full">
                     <h2 className="text-xl text-teal-900 font-medium">TOTAL</h2>
                     <h2 className="text-xl text-teal-900 font-bold">KES {items.totalPrice}</h2>
                 </div>
                 
                 <div className="mt-2">
-                    <Link className="btn bg-teal-700 text-white btn-sm w-full" type="button" to="/order/confirm">Checkout</Link>
+                    <Link className="btn bg-[#00A082] hover:bg-[#00A082] text-white btn-sm w-full" type="button" to="/order/confirm">Checkout</Link>
                 </div>
             </div>
         </>

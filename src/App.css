@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+    background: #FFC244;
+} */
+
+:root{
+    background: #FFC244;
+}
+
+html{
+    background: #FFC244;
+}
