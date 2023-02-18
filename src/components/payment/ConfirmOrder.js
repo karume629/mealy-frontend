@@ -1,15 +1,28 @@
+import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { makeOrder } from "../../features/users/orderSlice";
 
 export default function ConfirmOrder({user}){
     const meals = useSelector(state => state.meals)
+    const order = useSelector(state => state.orders)
+    const { handleSubmit } = useForm();
+    const onSubmit = () => createOrder();
+
     const dispatch = useDispatch()
 
     function createOrder(){
-        dispatch(makeOrder({
-            user_id: user.id,
+        meals.cart.forEach(order => {
+            dispatch(makeOrder({
+                quantity: order.quantity,
+                user_id: user.id,
+                meal_id: order.id
+            }))
+        });
+    }
 
-        }))
+    if (order.orderSuccess) {
+        return <Navigate to="/dashboard" />
     }
 
     return(
@@ -50,7 +63,9 @@ export default function ConfirmOrder({user}){
                     </div>
 
                     <div className="flex justify-evenly items-center flex-row mt-4">
-                        <button className="btn bg-teal-500 text-white">Make Order</button>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <button type="submit" className="btn bg-teal-500 text-white">Make Order</button>
+                        </form>
                         <Link to="/meals" className="btn btn-outline btn-warning hover:btn-warning">Continue Shopping</Link>
                     </div>
                 </div>
