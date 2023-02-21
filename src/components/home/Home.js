@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import homeImage from "../../assets/food.jpg"
+import { formatDiagnostic } from "typescript";
+import homeImage from "../../assets/food.png" 
 
 export default function Home(){
     return (
         <>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={homeImage}
+                <img src={homeImage}
                      alt="home" className="max-w-sm rounded-lg" />
                     <div>
                     <h1 className="text-6xl font-bold">Welcome to Mealy</h1>
