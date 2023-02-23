@@ -6,7 +6,7 @@ export default function Home(){
         <>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={homeImage}
+                <img src={homeImage}
                      alt="home" className="max-w-sm rounded-lg" />
                     <div>
                     <h1 className="text-6xl font-bold">Welcome to Mealy</h1>
