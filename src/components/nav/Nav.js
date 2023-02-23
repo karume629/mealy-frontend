@@ -6,7 +6,7 @@ export default function Nav({isLoggedIn, user, logout}){
     const cartCount = items.cart.length
     return(
         <>
-        <div className="navbar bg-{#FFC244} px-9">
+        <div className="navbar bg-{#FFC244} px-9 mb-10">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,7 +53,7 @@ export default function Nav({isLoggedIn, user, logout}){
                             <span className="font-bold text-lg">{cartCount} Items</span>
                             <span className="text-teal-600 font-bold">Total: KES {items.totalPrice}</span>
                             <div className="card-actions">
-                                <Link  to="/cart" className="btn btn-info btn-block">View cart</Link>
+                                <Link  to="/cart" className="btn bg-[#00A082] btn-block">View cart</Link>
                             </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default function Nav({isLoggedIn, user, logout}){
                             {
                                 user.is_admin ?
                                 <Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline justify-between" to="/admin" >
-                                    Admin Dashboard
+                                    Dashboard
                                 </Link>
                                 :
                                 <Link className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline justify-between" to="/dashboard" >
@@ -78,7 +78,7 @@ export default function Nav({isLoggedIn, user, logout}){
 
                             }
                             </li>
-                            <li><a onClick={logout}>Logout</a></li>
+                            <li><a className="hover:text-[#00A082] font-semibold text-xl hover:bg-transparent hover:underline justify-between" onClick={logout}>Logout</a></li>
                         </ul>
                     </div>
                 </div>

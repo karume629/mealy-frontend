@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+const url = process.env.REACT_APP_BACKEND_URL
+
 const initialState = {
   loading: false,
   meals: [],
@@ -10,22 +12,22 @@ const initialState = {
 }
 
 export const fetchAdminMeals = createAsyncThunk('admin/fetchMeals', id => {
-    return axios.post("http://localhost:3000/admin_meals", id)
+    return axios.post(`${url}/admin_meals`, id)
     .then(res => res.data)
 })
 
 export const addMeal = createAsyncThunk('admin/addMeal', (data) => {
-    return axios.post("http://localhost:3000/meals", data)
+    return axios.post(`${url}/meals`, data)
     .then(res => res.data)
 })
 
 export const editMeal = createAsyncThunk('admin/editMeal', (data) => {
-    return axios.patch(`http://localhost:3000/meals/${data.id}`, data)
+    return axios.patch(`${url}/meals/${data.id}`, data)
     .then(res => res.data)
 })
 
 export const deleteMeal = createAsyncThunk('admin/deleteMeal', (id) => {
-    return axios.delete(`http://localhost:3000/meals/${id}`)
+    return axios.delete(`${url}/meals/${id}`)
     .then(res => res.data)
 })
 
@@ -51,7 +53,7 @@ const adminMealSlice = createSlice({
             state.loading = false
             state.meals.push(action.payload)
             state.error = ''
-            toast.success(`Your meal "${action.payload.title}" is now live!`);
+            toast.success(`Your meal '${action.payload.title}' is now live!`);
         })
 
         builder.addCase(editMeal.fulfilled, (state, action) => {

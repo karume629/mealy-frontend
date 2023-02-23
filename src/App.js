@@ -29,7 +29,7 @@ function App() {
     const admin_id = sessionStorage.getItem('admin_id');
 
     if (admin_id) {
-      fetch(`http://localhost:3000/admins/${admin_id}`)
+      fetch(`http://104.198.243.254:3000/admins/${admin_id}`)
       .then(res => {
         if (res.status === 200) {
           res.json().then(data => {
@@ -45,7 +45,7 @@ function App() {
     }
  
     if (user_id) {
-      fetch(`http://localhost:3000/users/${user_id}`)
+      fetch(`http://104.198.243.254:3000/users/${user_id}`)
       .then(res => {
         if (res.status === 200) {
           res.json().then(data => {
@@ -85,6 +85,7 @@ function App() {
       <Route exact path="/login/admin" element={<AdminLogin getUser={getUser} />} />
       <Route exact path="/register" element={<Register getUser={getUser} />} />
       <Route path='*' element={<Navigate to="/login" />}/>
+      <Route exact path="/meals/:id/:meal" element={<SingleMeal />} />
     </Routes>
   )
 
@@ -96,7 +97,7 @@ function App() {
           <Route exact path="/cart" element={<CheckoutList />} />
           <Route exact path="/order/confirm" element={<ConfirmOrder user={user} />} />
           <Route exact path="/order/:id/edit" element={<EditOrder />} />
-          <Route exact path="/katy/orders" element={<CustomerOrders />} />
+          <Route exact path="/katy/orders" element={<CustomerOrders user={user} />} />
           <Route exact path="/admin" element={<Caterer user={user} />} />
           <Route exact path="/admin/orders" element={<Orders user={user} />} />
           <Route exact path="/admin/menu" element={<MealList user={user} />} />

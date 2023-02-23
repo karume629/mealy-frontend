@@ -93,11 +93,11 @@ export default function MealList({user}){
                                         KES {meal.price}
                                         </td>
                                         <td>
-                                            <Link className="border-2 border-teal-500 py-1 px-3 rounded-md hover:bg-teal-500 hover:text-white" 
+                                            <Link className="border-2 border-[#00A082] py-1 px-3 rounded-md hover:bg-[#00A082] hover:text-white" 
                                             to={"/admin/menu/edit/" + meal.id}>Edit</Link>
                                         </td>
                                         <td>
-                                        <label onClick={() => getMealObj(meal)} htmlFor="my-modal" className="btn btn-outline info btn-sm px-3 text-black hover:bg-black hover:text-white capitalize" type="button">Add to menu</label>
+                                        <label onClick={() => getMealObj(meal)} htmlFor="my-modal" className="btn btn-outline btn-sm px-3 text-black hover:bg-[#00A082] hover:text-white capitalize" type="button">Add to menu</label>
                                         </td>
                                         <th>
                                         <button onClick={() => deleteItem(meal.id)} className="btn bg-red-600 btn-sm text-white hover:bg-transparent hover:text-teal-900 capitalize" type="button">Delete</button>

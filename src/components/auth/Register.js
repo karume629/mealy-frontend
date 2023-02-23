@@ -6,20 +6,14 @@ import { useState } from "react";
 
 
 const schema = yup.object({
-    first_name: yup.string().required(),
-    last_name: yup.string().required(),
-    username: yup.string().required(),
-    email: yup.string().required(),
-    avatar: yup.string().required(),
-    phone_number: yup.number().required(),
-    password: yup.string().required(),
-    confirm_password: yup.string().required(),
+
   }).required();
 
 
 export default function Register({getUser}){
     const [registerSuccess, setregisterSuccess] = useState(false)
     const [registerError, setregisterError] = useState("")
+    const [loader, setloader] = useState(false)
 
     const { register, handleSubmit } = useForm({
         resolver: yupResolver(schema)
@@ -27,7 +21,8 @@ export default function Register({getUser}){
     const onSubmit = (data) => registerUser(data);
 
     function registerUser(data){
-        fetch("http://localhost:3000/users", {
+        setloader(true)
+        fetch("http://104.198.243.254:3000/users", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -38,6 +33,7 @@ export default function Register({getUser}){
             if(res.status === 201){
                 res.json().then(data => {
                     setregisterSuccess(true)
+                    setloader(false)
                     getUser(data)
                     console.log(data.id);
                 })
@@ -45,6 +41,7 @@ export default function Register({getUser}){
             else{
                 res.json().then(data => {
                     setregisterError(data.error)
+                    setloader(false)
                     console.log(data);
                 })
             }
@@ -101,7 +98,23 @@ export default function Register({getUser}){
                 </div>
 
                 <div className="flex justify-center">
-                    <button type="submit" className="bg-[#00A082] hover:bg-[#00A082] text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Register</button>
+                    <button type="submit" className="bg-[#00A082] hover:bg-[#00A082] text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                        {
+                            loader ?
+                            <div className="flex items-center justify-center">
+                                <div
+                                    className="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                    role="status">
+                                    <span
+                                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                                    >Loading...</span
+                                    >
+                                </div>
+                                </div>
+                                :
+                                "Register"
+                        }
+                    </button>
                 </div>
                 <p className="mt-10">Already have an account? <Link className="hover:underline" to="/login">Login here</Link></p>
             </form>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { addtoCart, fetchMealById, removeFromCart } from "../../features/meals/mealSlice";
 
 export default function SingleMeal(){
@@ -16,6 +17,19 @@ export default function SingleMeal(){
     return(
         <>
             <div className="container mx-auto p-5">
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable
+                pauseOnHover={false}
+                theme="light"
+            />
+
                 <div className="flex flex-row items-center hover:border-b-2 hover:border-[#00A082] w-fit">
                     <svg fill="none" className="w-10 h-10 mx-1" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path>
@@ -43,7 +57,7 @@ export default function SingleMeal(){
                         <p className="text-2xl font-bold text-teal-900 dark:text-white">KES 700</p>
 
                         <div className="card-actions">
-                        <button onClick={() => dispatch(addtoCart(meal.id))} className="btn bg-[#00A082] text-white">Order</button>
+                        <button onClick={() => dispatch(addtoCart(meal))} className="btn bg-[#00A082] text-white">Order</button>
                         <button onClick={() => dispatch(removeFromCart(meal.id))} 
                         className="btn bg-red-600 text-white">Remove order</button>
                         </div>

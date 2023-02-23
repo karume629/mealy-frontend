@@ -1,6 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+
+const url = process.env.REACT_APP_BACKEND_URL
+
+
 const initialState = {
   loading: false,
   day_meals: [],
@@ -10,12 +14,12 @@ const initialState = {
 
 
 export const createCalendar = createAsyncThunk('calendar/createCalendar', data => {
-    return axios.post("http://localhost:3000/calendars", data)
+    return axios.post(`${url}/calendars`, data)
     .then(res => res.data)
 })
 
 export const singleDayMeal = createAsyncThunk('calendar/singleDayMeal', dataObj => {
-    return axios.post("http://localhost:3000/meals_per_day", dataObj)
+    return axios.post(`${url}/meals_per_day`, dataObj)
     .then(res => res.data)
 })
 

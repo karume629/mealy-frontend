@@ -14,6 +14,9 @@ export default function Dashboard({user}){
     function cancel(){
         dispatch(deleteOrder(sortedOrder[0].id))
         toast.info(`You order ${sortedOrder[0].meal.title} cancelled`)
+        setTimeout(() => {
+            window.location.reload()
+        }, 3000);
     }
 
     let sortedOrder;
@@ -109,10 +112,13 @@ export default function Dashboard({user}){
                                     sortedOrder && sortedOrder.length? calcOrderPrice(sortedOrder[0].meal.price, sortedOrder[0].quantity) : 0
                                 }</div>
                                 <div className="stat-actions">
-                                <button onClick={cancel} className="btn bg-red-600 btn-sm">Cancel</button> 
+                                
                                 {
                                     sortedOrder && sortedOrder.length ?
-                                    <Link to={"/order/" + sortedOrder[0].id + "/edit"} className="btn btn-outline btn-sm mx-4">Edit order</Link>
+                                    <div className="flex flex-row items-center">
+                                        <button onClick={cancel} className="btn bg-red-600 btn-sm">Cancel</button> 
+                                        <Link to={"/order/" + sortedOrder[0].id + "/edit"} className="btn btn-outline btn-sm mx-4">Edit order</Link>
+                                    </div>
                                     :
                                     <p>No orders</p>
                                 }

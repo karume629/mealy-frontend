@@ -17,6 +17,7 @@ export default function Caterer({user}){
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => addNewMeal(data);
+    const loader = useSelector(state => state.adminMeals.loading)
 
     async function addNewMeal(data) {
         const res = await dispatch(createCalendar({
@@ -95,7 +96,23 @@ export default function Caterer({user}){
                             <textarea {...register("description")} className="textarea textarea-info w-4/5" placeholder="Add an eye catching description"></textarea>
                         </div>
 
-                        <button type="submit" className="text-white bg-[#00A082] hover:bg-[#00A082] px-3 py-2 rounded-lg">Submit</button>
+                        <button type="submit" className="text-white bg-[#00A082] hover:bg-[#00A082] px-3 py-2 rounded-lg">
+                        {
+                        loader ?
+                        <div className="flex items-center justify-center">
+                            <div
+                                className="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                role="status">
+                                <span
+                                className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                                >Loading...</span
+                                >
+                            </div>
+                            </div>
+                            :
+                            "Submit"
+                    }
+                        </button>
                     </form>
                 </div>
 

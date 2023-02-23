@@ -14,6 +14,7 @@ const schema = yup.object({
 export default function Login({getUser}){
     const [loginSuccess, setloginSuccess] = useState(false)
     const [loginError, setloginError] = useState("")
+    const [loader, setloader] = useState(false)
 
     const { register, handleSubmit } = useForm({
         resolver: yupResolver(schema)
@@ -21,7 +22,8 @@ export default function Login({getUser}){
     const onSubmit = (data) => loginUser(data);
 
     function loginUser(data){
-        fetch("http://localhost:3000/login", {
+        setloader(true)
+        fetch("http://104.198.243.254:3000/login", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -31,6 +33,7 @@ export default function Login({getUser}){
         .then(res => {
             if(res.status === 201){
                 res.json().then(data => {
+                    setloader(false)
                     setloginSuccess(true)
                     sessionStorage.setItem('user_id', JSON.stringify(data.id));
                     getUser(data)
@@ -39,6 +42,7 @@ export default function Login({getUser}){
             else{
                 res.json().then(data => {
                     setloginError(data.error)
+                    setloader(false)
                     console.log(data);
                 })
             }
@@ -64,7 +68,23 @@ export default function Login({getUser}){
                     <input type="password" {...register("password")} id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
                 <div className="flex justify-center">
-                    <button type="submit" className="bg-[#00A082] hover:bg-[#00A082] text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Login</button>
+                    <button type="submit" className="bg-[#00A082] hover:bg-[#00A082] text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                        {
+                            loader ?
+                            <div className="flex items-center justify-center">
+                                <div
+                                    className="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                    role="status">
+                                    <span
+                                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                                    >Loading...</span
+                                    >
+                                </div>
+                                </div>
+                                :
+                                "Login"
+                        }
+                    </button>
                 </div>
                 <p className="mt-10">Don't have an account? <Link className=" hover:underline" to="/register">Register here</Link></p>
             </form>

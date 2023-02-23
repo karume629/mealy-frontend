@@ -1,5 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+
+
+const url = process.env.REACT_APP_BACKEND_URL
+
 
 const initialState = {
   loading: false,
@@ -11,12 +16,12 @@ const initialState = {
 }
 
 export const fetchMeals = createAsyncThunk('meals/fetchMeals', () => {
-    return axios.get("http://localhost:3000/meals")
+    return axios.get(`${url}/meals`)
     .then(res => res.data)
 })
 
 export const fetchMealById = createAsyncThunk('meals/fetchMealById', (id) => {
-    return axios.get(`http://localhost:3000/meals/${id}`)
+    return axios.get(`${url}/meals/${id}`)
     .then(res => res.data)
 })
 
@@ -28,12 +33,13 @@ const mealSlice = createSlice({
             if (state.cart.find(item => action.payload.id === item.id)) return state
             let newCartItem = {...action.payload, quantity: 1, subtotal: action.payload.price}
             state.cart.push(newCartItem)
-
+            toast.info(`Added to cart!`)
             return state
         },
 
         removeFromCart: (state, action) => {
             state.cart = state.cart.filter(item => item.id !== action.payload)
+            toast.warning(`Removed from cart!`)
             return state
         },
 
@@ -54,7 +60,19 @@ const mealSlice = createSlice({
             state.totalPrice = state.cart.reduce((acc, item) => {
               return acc + item.price * item.quantity
             }, 0)
-          },
+        },
+
+        resetCart: (state) => {
+            state.cart = []
+        },
+
+        reloadMeal: (state) => {
+            if (state.meals.length) {
+                state.loading = false
+                return state
+            }
+            state.loading = true
+        },
     },
     extraReducers: builder => {
         builder.addCase(fetchMeals.pending, state => {
@@ -82,4 +100,4 @@ const mealSlice = createSlice({
 
 export default mealSlice.reducer
 
-export const { addtoCart, removeFromCart, incrementItem, decrementItem, getTotal } = mealSlice.actions
+export const { addtoCart, removeFromCart, incrementItem, decrementItem, getTotal, reloadMeal, resetCart } = mealSlice.actions

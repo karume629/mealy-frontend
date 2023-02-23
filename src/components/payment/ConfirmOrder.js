@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
+import { resetCart } from "../../features/meals/mealSlice";
 import { makeOrder } from "../../features/users/orderSlice";
 
 export default function ConfirmOrder({user}){
@@ -19,6 +20,7 @@ export default function ConfirmOrder({user}){
                 meal_id: order.id
             }))
         });
+        dispatch(resetCart())
     }
 
     if (order.orderSuccess) {
